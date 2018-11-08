@@ -1,7 +1,5 @@
 import sys
 
-sys.path.append("/home/liusiyang/sphereface/tools/caffe-sphereface/python")
-sys.path.append("/home/liusiyang/sphereface/tools/caffe-sphereface/python/caffe")
 import caffe
 import re
 import google.protobuf.text_format as txtf
