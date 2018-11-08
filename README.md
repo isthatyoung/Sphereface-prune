@@ -2,11 +2,11 @@
 Based on Caffe, Caffe's Python interface, the code realizes the compression and acceleration of  face recognition model Sphereface. 
  
 ## Requirement
-Caffe 1.0.0
-Python 2.7.6
-Caffe's interface for Python
-Matplotlib 1.3.1
-Numpy 1.13.1
+Caffe 1.0.0  
+Python 2.7.6  
+Caffe's interface for Python  
+Matplotlib 1.3.1  
+Numpy 1.13.1  
 
 ## Sphereface
 
