@@ -25,7 +25,7 @@ Trained by CASIA-Webface dataset
 ### Sphereface-4
 ![enter image description here](http://wx3.sinaimg.cn/mw690/710b0c10ly1fx0gdd3xawj20iq0lnwft.jpg)
 ### Sphereface-10
-Deal with the residual block in Sphereface-10
+#### Deal with the residual block in Sphereface-10
 ![enter image description here](http://wx4.sinaimg.cn/mw690/710b0c10ly1fx0gynalchj20ax0j3t9j.jpg)
 
 ### Comparison
