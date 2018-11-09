@@ -23,10 +23,10 @@ Trained by CASIA-Webface dataset
 
 ## Prune
 ### Sphereface-4
-![enter image description here](http://wx3.sinaimg.cn/mw690/710b0c10ly1fx0gdd3xawj20iq0lnwft.jpg)
+![enter image description here](http://wx1.sinaimg.cn/mw690/710b0c10ly1fx2a2ox2w7j20la0omad6.jpg)
 ### Sphereface-10
 #### Deal with the residual block in Sphereface-10
-![enter image description here](http://wx4.sinaimg.cn/mw690/710b0c10ly1fx0gynalchj20ax0j3t9j.jpg)
+![enter image description here](http://wx2.sinaimg.cn/mw690/710b0c10ly1fx2a2ssorvj20e40nyq50.jpg)
 
 ### Comparison
 ![enter image description here](http://wx3.sinaimg.cn/mw690/710b0c10ly1fx0gkur079j21050b1tbw.jpg)
