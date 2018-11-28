@@ -27,7 +27,9 @@ Trained by CASIA-Webface dataset
 ### Sphereface-10
 #### Deal with the residual block in Sphereface-10
 ![enter image description here](http://wx4.sinaimg.cn/mw690/710b0c10ly1fx0gynalchj20ax0j3t9j.jpg)
-
+### Fine-tuning
+Do 1 epoch fine-tuning after pruning every layer. Becuase CASIA Webface contains 452,723 face images, so 1 epoch means 1768 times iteration by setting batch size to 256. Basic leaning rate is set to 1 × 10−3. 
+After all layers are pruned, do 8 to 9 epochs fine-tuning, basic learning rate is 1 × 10−3.
 ### Comparison
 ![enter image description here](http://wx3.sinaimg.cn/mw690/710b0c10ly1fx0gkur079j21050b1tbw.jpg)
 
