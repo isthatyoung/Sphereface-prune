@@ -32,7 +32,7 @@ Channel selection follows the key criterion of convolutional neural network
 
 
 ### Sphereface-4
-![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png =500x1000)
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png){:height="1000px" width="500px"}
 ### Sphereface-10
 #### Deal with the residual block in Sphereface-10
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure10.png)
