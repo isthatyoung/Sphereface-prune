@@ -11,7 +11,7 @@ Numpy 1.13.1
 ## Sphereface
 
 ### Structure
-![enter image description here](http://wx4.sinaimg.cn/mw690/710b0c10ly1fx0g2yfozxj210z0dfmzz.jpg)
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure1.png)
 
 ### Train
 Trained by CASIA-Webface dataset
