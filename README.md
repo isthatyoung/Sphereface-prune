@@ -15,11 +15,11 @@ Numpy 1.13.1
 
 ### Train
 Trained by CASIA-Webface dataset
-![enter image description here](http://wx4.sinaimg.cn/mw690/710b0c10ly1fx0g5rv3tbj20la0k141n.jpg)
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure2.png)
 
 ### Test accuracy
 10-folds cross validation by LFW dataset
-![enter image description here](http://wx2.sinaimg.cn/mw690/710b0c10ly1fx0g8ui3lkj20ru06jjss.jpg)
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png)
 
 ## Prune
 ### Sphereface-4
