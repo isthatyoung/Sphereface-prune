@@ -31,9 +31,9 @@ Trained by CASIA-Webface dataset
 1 epoch fine-tuning after pruning every layer. Becuase CASIA Webface contains 452,723 face images, so 1 epoch means 1768 times iteration by setting batch size to 256. Basic leaning rate is set to 1 × 10−3.  
 After all layers are pruned, do 8 to 9 epochs fine-tuning, basic learning rate is 1 × 10−3.  
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure6a.png)
-![enter image description here](http://wx4.sinaimg.cn/mw690/710b0c10ly1fxokr2scfzj20mq09bacw.jpg)
-### Comparison
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure6b.png)
+### Comparison
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure7.png)
 
 
 ## References
