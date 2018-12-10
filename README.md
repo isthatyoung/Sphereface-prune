@@ -1,5 +1,5 @@
 # Sphereface-Prune
-Based on Caffe, Caffe's Python interface, the code realizes the compression and acceleration of  face recognition model Sphereface. 
+An implementation of **Channel Pruning** on face recognition model **Sphereface** by Caffe, Caffe's Python interface, realize Convolutional neural network compression and acceleration.
  
 ## Requirement
 Caffe 1.0.0  
