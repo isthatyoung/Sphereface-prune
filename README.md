@@ -22,6 +22,15 @@ Trained by CASIA-Webface dataset
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png)
 
 ## Prune
+We adopts a greedy algorithm based channel selection methods to choose the weak channels in every layer of convolutional neural network and remove them.   
+Channel selection follows the key criterion of convolutional neural network  
+· The output of i+1 layer is the input of i layer.  
+· The input channels of i+1-th layer have one-to-one correspondence with the filters in i-th layer.  
+· If some input channels are removed without affecting the output of i+1 layer, that means these channels could be safely removed. 
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure8a.png)
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure8b.png)
+
+
 ### Sphereface-4
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png)
 ### Sphereface-10
