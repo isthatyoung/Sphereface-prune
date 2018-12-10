@@ -19,7 +19,7 @@ Trained by **CASIA-Webface** dataset
 
 ### Test accuracy
 10-folds cross validation by **LFW** dataset
-<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png" width = "300" height = "200" align=center />
+![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png)
 
 
 ## Prune
@@ -33,7 +33,7 @@ Channel selection follows the key criterion of convolutional neural network
 
 
 ### Sphereface-4
-![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png){:height="800px" width="400px"}
+<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png" width = "300" height = "200" align=center />
 ### Sphereface-10
 #### Deal with the residual block in Sphereface-10
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure10.png)
