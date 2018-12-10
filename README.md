@@ -14,7 +14,7 @@ Numpy 1.13.1
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure1.png)
 
 ### Train
-Trained by CASIA-Webface dataset
+Trained by CASIA-Webface dataset   
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure2.png)
 
 ### Test accuracy
