@@ -50,19 +50,6 @@ def main():
                                                                                 bias_temp, compress_rate, save_indexes)
         np.copyto(before_prune_solver.net.params[pruning_layer_name][0].data, weight_temp)
         np.copyto(before_prune_solver.net.params[pruning_layer_name][1].data, bias_temp)
-
-        # relu_weight=before_prune_solver.net.params['relu1_1'][0].data
-        # relu_weight_temp=np.zeros(before_prune_solver.net.params['relu1_1'][0].shape,np.float32)
-        # np.copyto(relu_weight_temp,relu_weight)
-        # relu_weight_temp[prune_indexes['conv1_1']]=0
-        # np.copyto(before_prune_solver.net.params['relu1_1'][0].data,relu_weight_temp)
-        #
-        # weight_temp3 = before_prune_solver.net.params['conv2_1'][0].data
-        # weight_model_temp = np.zeros(before_prune_solver.net.params['conv2_1'][0].shape, np.float32)
-        # np.copyto(weight_model_temp, weight_temp3)
-        # weight_model_temp[:, prune_indexes['conv1_1'], :, :] = 0
-        # np.copyto(before_prune_solver.net.params['conv2_1'][0].data, weight_model_temp)
-        # before_prune_solver.net.save(before_prune_caffemodel)
         ChangedeployPrototxt(before_prune_deploy, pruning_layer_name, save_indexes)
         ChangedeployPrototxt(before_prune_model, pruning_layer_name, save_indexes)
         prune_net = caffe.Net(before_prune_model,
@@ -85,12 +72,7 @@ def main():
                 SaveModelParameter(saving_layer_name, pruning_layer_name, before_prune_solver.net, prune_net,
                                    save_indexes, save_layers, been_saved_layers)
         prune_net.save(output_model)
-
-        # if(pruning_layer_name=='conv3_2' or pruning_layer_name=='conv4_1'):
-        #     before_prune_solver=caffe.SGDSolver(before_prune_solver_proto2)
-        # else:
-        #     before_prune_solver = caffe.SGDSolver(before_prune_solver_proto)
-
+        
         before_prune_solver = caffe.SGDSolver(before_prune_solver_proto)
         before_prune_solver.net.copy_from(output_model)
         ##Finetuning after pruning every layer
@@ -171,8 +153,6 @@ def RestoreLayer_Lr(prototxtfile, layer_name):
 
 
 def SaveModelParameter(layer_name, pruning_layer_name, Net, prune_net, save_indexes, save_layers, been_saved_layers):
-    # print("Now saving "+layer_name+" parameters")
-    # weight, bias = Net.params[layer_name]
     if (layer_name not in been_saved_layers):
         if (layer_name == pruning_layer_name):
             weight, bias = Net.params[layer_name]
