@@ -20,9 +20,9 @@ Trained by **CASIA-Webface** dataset
 ### Test accuracy
 10-folds cross validation by **LFW** dataset
 <div align="center">
-<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png" width = "400" height = "94" align=left />
+<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png" width = "400" height = "94" align=center />
 </div>  
-<br>
+
 ## Prune
 We adopt a **greedy algorithm** based **channel selection** methods to choose the weak channels in every layer of convolutional neural network and prune them.   
 Channel selection follows the key criterion of convolutional neural network  
