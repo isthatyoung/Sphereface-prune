@@ -36,8 +36,8 @@ Channel selection follows the key criterion of convolutional neural network
 
 
 ### Sphereface-4
-<div align="left">
-<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png" width = "435" height = "500" align=center />
+<div align="center">
+<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure4.png" width = "850" height = "200" align=left />
 </div> 
 
 ### Sphereface-10
