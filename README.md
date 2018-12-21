@@ -19,7 +19,9 @@ Trained by **CASIA-Webface** dataset
 
 ### Test accuracy
 10-folds cross validation by **LFW** dataset
-![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png)
+<div align="center">
+<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure3.png" width = "400" height = "94" align=left />
+</div> 
 
 
 ## Prune
