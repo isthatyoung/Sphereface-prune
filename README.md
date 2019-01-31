@@ -28,7 +28,7 @@ We adopt a **greedy algorithm** based **channel selection** methods to choose th
 Channel selection follows the key criterion of convolutional neural network  
 · The output of *i* layer is the input of *i*+1 layer.  
 · The input channels of *i*+1-th layer have one-to-one correspondence with the filters in *i*-th layer.  
-· If some input channels are removed without affecting the output of *i*+1 layer, that means these channels could be safely removed. 
+· If a set of filters in *i* are removed without affecting the output of *i*+1 layer, that means that this set of filters could be safely removed. 
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure8a.png)
 ![enter image description here](https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure8b.png)
 
