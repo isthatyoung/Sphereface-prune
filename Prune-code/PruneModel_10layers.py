@@ -1,4 +1,3 @@
-import sys
 
 import caffe
 import re
@@ -88,7 +87,7 @@ def main():
         # before_prune_solver.net.save(output_model)
         been_saved_layers.append(pruning_layer_name)
 
-    ##Last round finetuning
+    ##TODO Last round finetuning
     retrain_solver = caffe.SGDSolver(prune_solver_proto)
     retrain_solver.net.copy_from(output_model)
     retrain_pruned(retrain_solver, output_model)
