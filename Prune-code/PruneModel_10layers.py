@@ -6,7 +6,7 @@ import google.protobuf.text_format as txtf
 from caffe.proto import caffe_pb2
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
+
 
 
 def main():
@@ -16,14 +16,12 @@ def main():
     before_prune_model=''
     before_prune_caffemodel = ''
     before_prune_solver_proto = ''
-    before_prune_additional_solver_proto = ''
-    before_prune_solver_proto2 = ''
     prune_solver_proto=''
     output_model = ''
     prune_layers=['conv1_1','conv2_2','conv3_2','conv3_4','conv4_1']## because of residual block structure, not prune all the layer
     been_saved_layers=[]
     compress_rate=0.75
-    save_indexes = {}#save residual channel after pruning
+    save_indexes = {} #save residual channel after pruning
     prune_indexes = {}
 
     for pruning_layer_name in prune_layers:
@@ -80,7 +78,7 @@ def main():
             before_prune_solver.step(1)
         before_prune_solver.net.save(output_model)
 
-        ##Additional one epoch finetuning for conv4_1
+        ##TODO Additional one epoch finetuning for conv4_1
         # if(pruning_layer_name=='conv4_1'):
         #     before_prune_solver = caffe.SGDSolver(before_prune_additional_solver_proto)
         #     before_prune_solver.net.copy_from(output_model)
@@ -201,7 +199,7 @@ def retrain_pruned(solver, prune_caffemodel):
     print("Pruned model retrain finish")
 
 
-### A greedy algorithm ###
+##Implement of Greedy algorithm on channel selection
 def greedy(channel_list, remove_channel_number):
     # todo: plus each two number in the list, and choose the min group as candidate group
     # backup_channel_list=np.array(channel_list)
@@ -253,7 +251,6 @@ def extract(rand):
 
 
 def prune_dense(Net, layer_name, weight_matrix, bias_matrix, rate, save_indexes):
-    # Net.forward()
     Net.forward()
     Net.backward()
     feature_maps = Net.blobs[layer_name].data
