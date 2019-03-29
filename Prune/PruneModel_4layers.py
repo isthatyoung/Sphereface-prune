@@ -14,7 +14,6 @@ def main():
     before_prune_model=''#original model prototxt
     before_prune_caffemodel = ''#original training parameters
     before_prune_solver_proto = ''#original caffe training solver prototxt
-    before_prune_additional_solver_proto = ''
     prune_solver_proto=''#pruned caffe training solver prototxt
     output_model = ''#pruned training parameters
     prune_layers=['conv1_1','conv2_1','conv3_1','conv4_1']##All layers of Sphereface-4 pruned version
@@ -26,6 +25,7 @@ def main():
 
 
     for pruning_layer_name in prune_layers:
+
         if(len(been_saved_layers)==0):
             print("########## Now pruning conv1_1 ##########")
             before_prune_solver = caffe.SGDSolver(before_prune_solver_proto)
@@ -36,7 +36,7 @@ def main():
             before_prune_solver.net.copy_from(output_model)
 
         save_layers=before_prune_solver.net.params.keys()[:]
-        ##TODO Copy training parameterts of certain layers to another empty matrix
+        ##TODO: Copy training parameterts of certain layers to another empty matrix
         weight_temp2=before_prune_solver.net.params[pruning_layer_name][0].data
         weight_temp=np.zeros(before_prune_solver.net.params[pruning_layer_name][0].shape,np.float32)
         bias_temp2 = before_prune_solver.net.params[pruning_layer_name][1].data
@@ -44,7 +44,7 @@ def main():
         np.copyto(weight_temp,weight_temp2)
         np.copyto(bias_temp,bias_temp2)
 
-        ##TODO Select pruned channel by greed algorithm and set the values of pruned channel in the matrix as zero by index
+        ##TODO: Select pruned channel by greed algorithm and set the values of pruned channel in the matrix as zero by index
         weight_temp,bias_temp,prune_indexes[pruning_layer_name]=prune_dense(before_prune_solver.net,pruning_layer_name,weight_temp,bias_temp,compress_rate,save_indexes)
 
         np.copyto(before_prune_solver.net.params[pruning_layer_name][0].data,weight_temp)
@@ -53,8 +53,9 @@ def main():
         ChangedeployPrototxt(before_prune_deploy,pruning_layer_name,save_indexes)
         ChangedeployPrototxt( before_prune_model,pruning_layer_name,save_indexes)
 
+        #TODO: generate empty caffemodel as same structure with deploy prototxt
+        prune_net = caffe.Net(before_prune_model, caffe.TEST)
 
-        prune_net = caffe.Net(before_prune_model, caffe.TEST)#generate empty caffemodel as same structure with deploy prototxt
         ##TODO copy all the parameters from original .caffemodel to empty ./caffemodel
         for saving_layer_name in save_layers:
             print("Now saving " + saving_layer_name + " parameters")
@@ -79,7 +80,7 @@ def main():
               before_prune_solver.step(1)
         before_prune_solver.net.save(output_model)
 
-        ##Additional one epoch finetuning for conv4_1
+        ##TODO Additional one epoch finetuning for conv4_1
         # if(pruning_layer_name=='conv4_1'):
         #       before_prune_solver = caffe.SGDSolver(before_prune_additional_solver_proto)
         #       before_prune_solver.net.copy_from(output_model)
@@ -196,7 +197,7 @@ def retrain_pruned(solver,prune_caffemodel):
     print("Pruned model retrain finish")
 
 
-### greedy algorithm ###
+## Implement of Greedy algorithm on channel selection
 def greedy(channel_list, remove_channel_number):
     channel_list = list(channel_list)
     backup_channel_list=[]
@@ -207,7 +208,7 @@ def greedy(channel_list, remove_channel_number):
     pruned_channel=[]
 
     for i in range(remove_channel_number / 2):
-        #todo:each round will choose two alternative number
+        #TODO each round will choose two alternative number
         channel_list, N = extract(channel_list)
         for x in N:
             num.append(x)
@@ -222,7 +223,7 @@ def greedy(channel_list, remove_channel_number):
     return save_channel,pruned_channel
 
 def extract(rand):
-    #todo: plus each two number in the list, and choose the min group as candidate group
+    #TODO plus each two number in the list, and choose the min group as candidate group
     L = np.zeros((len(rand)*(len(rand)-1),3))#initialize row:n*n-1 column:3
     i = 0
     for x in rand:
@@ -244,6 +245,7 @@ def extract(rand):
 
 
 def prune_dense(Net,layer_name,weight_matrix,bias_matrix,rate,save_indexes):
+
     Net.forward()
     feature_maps = Net.blobs[layer_name].data
     features_sum_on_channel = np.sum(feature_maps, axis=(0, 2, 3))
