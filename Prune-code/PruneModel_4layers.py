@@ -1,4 +1,3 @@
-import sys
 import caffe
 import google.protobuf.text_format as txtf
 from caffe.proto import caffe_pb2
@@ -8,7 +7,7 @@ import re
 
 
 def main():
-    caffe.set_device(2)
+    caffe.set_device(2) #gpu id:2
     caffe.set_mode_gpu()
     before_prune_deploy = ''#original deploy prototxt
     before_prune_model=''#original model prototxt
@@ -18,7 +17,7 @@ def main():
     output_model = ''#pruned training parameters
     prune_layers=['conv1_1','conv2_1','conv3_1','conv4_1']##All layers of Sphereface-4 pruned version
     been_saved_layers=[]
-    compress_rate=0.5 #compress rate
+    compress_rate=0.5 #compress rate<1
     save_indexes = {}#save residual channel after pruning
     prune_indexes = {}
 
@@ -75,9 +74,10 @@ def main():
         before_prune_solver = caffe.SGDSolver(before_prune_solver_proto)
         before_prune_solver.net.copy_from(output_model)
 
-        ##Finetuning after pruning every layer
-        for i in range(1768):
-              before_prune_solver.step(1)
+        ##Finetuning 1 epoch (1768 iteration here) after pruning every layer
+        before_prune_solver.step(1768)
+        # for i in range(1768):
+        #       before_prune_solver.step(1)
         before_prune_solver.net.save(output_model)
 
         ##TODO Additional one epoch finetuning for conv4_1
@@ -189,7 +189,7 @@ def SaveModelParameter(layer_name,pruning_layer_name, Net, prune_net, save_index
         np.copyto(prune_net.params[layer_name][0].data, weight)
         np.copyto(prune_net.params[layer_name][1].data, bias)
 
-
+##Fine-tuning for 9 epochs after pruning the whole model
 def retrain_pruned(solver,prune_caffemodel):
     for i in range(9):
         solver.step(1768)
