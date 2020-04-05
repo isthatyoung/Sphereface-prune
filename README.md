@@ -1,10 +1,9 @@
 # Sphereface-Prune
 An implementation of **Channel Pruning** on face recognition model **Sphereface** by Caffe, Caffe's Python interface, realize Convolutional neural network compression and acceleration.
  
-## Requirement
+## Requirement 
 Caffe 1.0.0  
 Python 2.7.6  
-Caffe's interface for Python  
 Matplotlib 1.3.1  
 Numpy 1.13.1  
 
@@ -43,7 +42,7 @@ Channel selection follows the key criterion of convolutional neural network
 ### Sphereface-10
 #### Deal with the residual block in Sphereface-10
 <div align="center">
-<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure10.png" width = "300" height = "517" align=center />
+<img src="https://github.com/isthatyoung/Sphereface-prune/blob/master/images/figure10.png" width = "150" height = "259" align=center />
 </div>  
 
 ### Fine-tuning
