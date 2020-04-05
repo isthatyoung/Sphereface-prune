@@ -16,7 +16,7 @@ def main():
     before_prune_solver_proto = ''
     prune_solver_proto=''
     output_model = ''
-    prune_layers=['conv1_1','conv2_2','conv3_2','conv3_4','conv4_1']## because of residual block structure, not prune the last layer of every residual block
+    prune_layers=['conv1_1','conv2_2','conv3_2','conv3_4','conv4_1']## because of the residual blocks structure, not prune the initial layer of every residual block and the last layer
     been_saved_layers=[]
     compress_rate=0.75 #compress rate<1
     save_indexes = {} #save residual channel after pruning
